@@ -16,6 +16,9 @@ namespace EFGetStarted.AspNetCore.NewDb
 {
     public class Startup
     {
+
+        //private IApplicationEnvironment appEnv;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -40,7 +43,7 @@ namespace EFGetStarted.AspNetCore.NewDb
             // using EFGetStarted.AspNetCore.NewDb.Models;
             // UseSqlite requires
             // using Microsoft.EntityFrameworkCore;
-            var connection = "Data Source=blogging.db";
+             var connection = "Data Source=./blogging.db";
             services.AddDbContext<BloggingContext>
                 (options => options.UseSqlite(connection));
         }
