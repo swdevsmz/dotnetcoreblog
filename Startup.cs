@@ -47,8 +47,7 @@ namespace EFGetStarted.AspNetCore.NewDb
             // using Microsoft.EntityFrameworkCore;
             //hostingEnvironment.ContentRootPath;
             Console.WriteLine($"Data Source={hostingEnvironment.ContentRootPath}\\blogging.db");
-            var connection = $"Data Source={hostingEnvironment.ContentRootPath}\\blogging.db";
-            services.AddDbContext<BloggingContext>
+            var connection = $"Data Source={hostingEnvironment.ContentRootPath}\\blogging.db";            services.AddDbContext<BloggingContext>
                 (options => options.UseSqlite(connection));
         }
 
