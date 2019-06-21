@@ -18,6 +18,7 @@ namespace EFGetStarted.AspNetCore.NewDb
     {
 
         private IHostingEnvironment hostingEnvironment;
+        private IApplicationEnvironment _appEnv;
 
         public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
@@ -44,8 +45,9 @@ namespace EFGetStarted.AspNetCore.NewDb
             // using EFGetStarted.AspNetCore.NewDb.Models;
             // UseSqlite requires
             // using Microsoft.EntityFrameworkCore;
-            Console.WriteLine(hostingEnvironment.WebRootPath);
-            var connection = @"Data Source={hostingEnvironment.WebRootPath}/blogging.db";
+            //hostingEnvironment.ContentRootPath;
+            Console.WriteLine($"Data Source={hostingEnvironment.ContentRootPath}\\blogging.db");
+            var connection = $"Data Source={hostingEnvironment.ContentRootPath}\\blogging.db";
             services.AddDbContext<BloggingContext>
                 (options => options.UseSqlite(connection));
         }
